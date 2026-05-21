@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TD
-    subgraph Frontend [可视化前端 (Flet GUI)]
-        UI[Flet Dashboard] -->|用户配置 & 控制| Core[Flet App Engine]
-        Core -->|实时状态查询| Flask[Flask API Server]
+    subgraph Frontend ["可视化前端 (Flet GUI)"]
+        UI["Flet Dashboard"] -->|用户配置 & 控制| Core["Flet App Engine"]
+        Core -->|实时状态查询| Flask["Flask API Server"]
     end
 
-    subgraph CoreEngine [量化核心引擎]
-        Flask <-->|SocketIO 实时同步| Runner[主控引擎 main_modular.py]
-        Runner -->|加载| Strategy[网格马丁策略 GridMartingale]
-        Runner -->|同步| HistorySync[历史数据同步服务]
+    subgraph CoreEngine ["量化核心引擎"]
+        Flask <-->|SocketIO 实时同步| Runner["主控引擎 main_modular.py"]
+        Runner -->|加载| Strategy["网格马丁策略 GridMartingale"]
+        Runner -->|同步| HistorySync["历史数据同步服务"]
     end
 
-    subgraph AIModule [AI/机器学习模块]
-        Strategy -->|调用| ML[LightGBM & PyTorch 预测模型]
-        ML -->|训练数据| Qlib[Qlib 量化分析库]
+    subgraph AIModule ["AI/机器学习模块"]
+        Strategy -->|调用| ML["LightGBM & PyTorch 预测模型"]
+        ML -->|训练数据| Qlib["Qlib 量化分析库"]
     end
 
-    subgraph Broker [交易执行端]
-        HistorySync <-->|数据拉取| MT5[MetaTrader 5 客户端]
+    subgraph Broker ["交易执行端"]
+        HistorySync <-->|数据拉取| MT5["MetaTrader 5 客户端"]
         Strategy <-->|订单执行 & 状态监视| MT5
     end
 

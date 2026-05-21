@@ -1,0 +1,158 @@
+; GridMartingaleMA 配套预设（层数触发对冲，建议双向网格）
+; EA: MQL5/Experts/GridMartingaleMA/GridMartingaleMA01.mq5
+; Import in MT5 EA properties -> Load
+
+InpShowUI=true
+InpColorCloseAll=255
+InpColorCloseBuy=42495
+InpColorCloseSell=16711680
+InpDrawInnerTPLines=true
+InpBuyTPLineColor=16748574
+InpSellTPLineColor=65535
+InpHedgeModeColor=16711935
+
+InpMagic=2025890
+InpEnableTrading=true
+InpUsePcTime=true
+
+InpSessStart=00:00
+InpSessEnd=23:59
+InpAllowOpenOutside=true
+
+; --- 常规模式加仓步长（InpP*；双向/单侧网格，未进入对冲或对冲触发侧已冻结不加）---
+InpLayer1StepPts=160
+InpLayer2StepPts=160
+InpLayer3StepPts=160
+InpLayer4StepPts=160
+InpLayer5StepPts=310
+InpLayer6StepPts=310
+InpLayer7StepPts=310
+InpLayer8StepPts=600
+InpLayer9StepPts=650
+InpLayer10StepPts=700
+InpLayer11StepPts=850
+InpLayer12StepPts=1000
+InpLayer13StepPts=1200
+InpLayer14StepPts=1400
+InpLayer15StepPts=1600
+InpLayer16StepPts=1900
+InpLayer17StepPts=2300
+InpLayer18StepPts=2600
+InpLayer19StepPts=2900
+InpLayer20StepPts=3200
+InpLayer21StepPts=2400
+InpLayer22StepPts=2600
+InpLayer23StepPts=2700
+InpLayer24StepPts=2800
+InpLayer25StepPts=2900
+; ★ MaxTotalPositions 提至38：主仓达到触发层后进入修复模式，给救援仓保留足够仓位空间
+InpMaxTotalPositions=55
+
+; --- 对冲模式：仅「副仓」顺势追击步长（阶段分界仍用 InpP1MaxLayers/P2/P3）---
+; H1=220(前4单)  H2=400(第5-7单)  H3=500(第8单起) — 修复仓分批补，不一次性加重
+InpHedgeUseOwnStep=true
+InpHedgeP1StepPts=220
+InpHedgeP2StepPts=400
+InpHedgeP3StepPts=500
+
+InpInitialLots=0.015
+InpLotMult=1.242
+InpMaxLot=0.80
+InpLotStrictIncrease=true
+InpLayer13Lot=0.17
+InpLayer14Lot=0.19
+InpLayer15Lot=0.22
+InpLayer16Lot=0.24
+InpLayer17Lot=0.27
+InpLayer18Lot=0.30
+InpLayer19Lot=0.34
+InpLayer20Lot=0.38
+InpLayer21Lot=0.42
+InpLayer22Lot=0.50
+InpLayer23Lot=0.57
+InpLayer24Lot=0.60
+InpLayer25Lot=0.80
+InpLotLinearFromOrder=11
+InpLotLinearStep=0.02
+InpFastCloseProfitMoney=1.5
+InpFastCloseStepTpRatio=0.25
+InpFastCloseMaxProfitMoney=5.0
+InpBuyTargetBoost=1.20
+InpSellTargetBoost=1.20
+; ★ 核心：达到该层数后停止触发侧继续加仓，进入库存修复状态机
+InpHedgeTriggerLayers=16
+; ★ 整组浮盈达到该目标后全平；美分账户下不宜设太高
+InpHedgeCloseProfitMoney=2.0
+InpHedgeUseDynamicExit=true
+InpHedgeExitLotsK=0.3
+; ★ 点差系数归零：去掉点差惩罚项，原先2.7手时该项贡献$97导致目标虚高
+InpHedgeExitSpreadK=0
+InpHedgeExitMinMoney=1.5
+; --- 修复模式：顺势救援仓 + 盈利配对剥离坏仓 ---
+; 先把救援方向手数补到触发侧手数的 60%，亏损扩大时最高补到 105%
+InpHedgeRescueBaseRatio=0.60
+InpHedgeRescueMaxRatio=1.05
+InpHedgeRescueStrongLossMoney=200
+; 黄金美分账户：单次救援不宜过重，分批补仓更稳
+InpHedgeRescueMaxOpenLot=0.10
+; 黄金美分账户：救援仓盈利中最多拿 75% 去抵消触发侧亏损，保留手续费/滑点缓冲
+; --- 修复状态机：覆盖救援回吐、坏仓恢复、只减不加 ---
+; 坏仓亏损比触发时恢复 35%，或降到 80 以内，就停止补救援并优先减坏仓
+InpHedgeRepairRecoveryRatio=0.35
+InpHedgeRepairRecoveredLossMoney=80
+; 触发侧坏仓亏损降到 15 以内，认为库存基本修复
+InpHedgeRepairExitTriggerLossMoney=15
+; 救援仓峰值盈利达到 30 后，如果回吐 45%，触发保护/剥离
+; 坏仓已恢复时，单张救援仓亏损超过 25 才允许止损处理
+; 坏仓恢复阶段，允许直接平掉小亏/小赚的触发侧库存
+InpHedgeRecoveryCloseMaxLossMoney=25
+InpHedgeRecoveryCloseMaxOrders=3
+; 对冲修复：仅在 peel_bad_side / bad_side_recovery 且救援有利润垫时，触发侧微加仓改善均价（抬/压参考线）
+; 保证金率低于该值进入只减不加；0 表示关闭
+InpHedgeReduceOnlyMarginLevel=500
+InpSetTPOnOrders=false
+InpSlippagePts=50
+
+; --- 行情暴动自动冻结防守（暴涨暴跌时自动暂停加仓） ---
+; 是否开启行情暴动冻结防守功能（建议需要时开启为 true）
+InpMoveFreezeOn=false
+; 监测波动的时间窗口大小（单位：秒）
+InpMF_WindowSec=30
+; 触发暂停加仓的黄金点数差阈值（350点 = 3.5 美元价差）
+InpMF_ThresholdPts=500
+; 触发防守后，自动冻结/暂停加仓的分钟数（5分钟）
+InpMF_FreezeMin=10
+; 暴动冻结期间收盘后，新首单暂停开仓秒数（300秒 = 5分钟，防瀑布底秒开首单被套）
+InpMF_BasketCloseWaitSec=300
+; 冻结结束后稳定观察期（秒），等行情稳住再在极值补单（180秒 = 3分钟）
+InpMF_StabilizeSec=180
+
+
+InpUseComments=true
+InpCommentPrefix=GRID_V02
+InpPreferFOK=false
+InpWaitSecAfterBasketClose=20
+; 价格间距 = InpP*StepPts × (_Point 或本项)。黄金若「突然变密」多为券商 _Point 与预期不符，可试 0.01
+InpPointToPrice=0
+; 同侧两次开仓/加仓最短间隔(毫秒)；过小会在行情快时出现「同一秒多笔」；漏单可略减小
+InpScaleInMinIntervalMs=1200
+; 成交后等待持仓刷新(毫秒)，避免同秒下一tick误判层数再开一单
+InpPostOpenSyncMs=1200
+
+; --- 大单侧反向步长压制功能 ---
+InpHightLayerOppositeSuppression=true
+InpHighLayerThreshold=10
+InpHighLayerOppositeStepMult=2.0
+InpHighLayerOppositeLotBoostFactor=0.3
+
+; --- 高层震荡监控加仓功能 ---
+InpOscillationMonitorMinLayers=10
+InpOscillationMinTimeSec=7200
+InpOscillationStepRatio=0.5
+InpOscillationTriggerPercent=0.2
+
+
+
+InpEnableLock=false
+InpEnableTailOffset=false
+InpEnableMaxPLOffset=false

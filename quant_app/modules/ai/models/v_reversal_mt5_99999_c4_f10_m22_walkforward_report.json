@@ -1,0 +1,348 @@
+{
+  "csv_path": "E:\\python\\gold-quantification\\data\\mt5_history\\XAUUSD_c_M1_99999_20260508_141756.csv",
+  "point": 0.01,
+  "config": {
+    "confirm_bars": 4,
+    "future_bars": 10,
+    "min_future_pts": 22.0,
+    "min_precision": 0.6,
+    "min_fold_signals": 20,
+    "folds": 4
+  },
+  "events": 4856,
+  "pattern_counts": {
+    "INVERTED_V": 2053,
+    "V": 2803
+  },
+  "label_counts": {
+    "0": 2511,
+    "1": 150,
+    "2": 2195
+  },
+  "models": {
+    "V": {
+      "continuation": {
+        "accepted": false,
+        "rows": 2712,
+        "positive_label": 2,
+        "positive_name": "continuation",
+        "avg_test_precision": 0.4217,
+        "min_test_precision": 0.3855,
+        "passed_folds": 0,
+        "folds": [
+          {
+            "fold": 1,
+            "train_rows": 904,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.469,
+            "valid": {
+              "signals": 197,
+              "wins": 89,
+              "losses": 108,
+              "precision": 0.4518,
+              "coverage": 0.4358,
+              "threshold": 0.5
+            },
+            "test": {
+              "signals": 192,
+              "wins": 86,
+              "losses": 106,
+              "precision": 0.4479,
+              "coverage": 0.4248,
+              "threshold": 0.5
+            }
+          },
+          {
+            "fold": 2,
+            "train_rows": 1356,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.4336,
+            "valid": {
+              "signals": 91,
+              "wins": 46,
+              "losses": 45,
+              "precision": 0.5055,
+              "coverage": 0.2013,
+              "threshold": 0.66
+            },
+            "test": {
+              "signals": 83,
+              "wins": 32,
+              "losses": 51,
+              "precision": 0.3855,
+              "coverage": 0.1836,
+              "threshold": 0.66
+            }
+          },
+          {
+            "fold": 3,
+            "train_rows": 1808,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.4823,
+            "valid": {
+              "signals": 62,
+              "wins": 29,
+              "losses": 33,
+              "precision": 0.4677,
+              "coverage": 0.1372,
+              "threshold": 0.7
+            },
+            "test": {
+              "signals": 44,
+              "wins": 19,
+              "losses": 25,
+              "precision": 0.4318,
+              "coverage": 0.0973,
+              "threshold": 0.7
+            }
+          }
+        ]
+      },
+      "failure": {
+        "accepted": false,
+        "rows": 2712,
+        "positive_label": 0,
+        "positive_name": "failure",
+        "avg_test_precision": 0.5261,
+        "min_test_precision": 0.5,
+        "passed_folds": 0,
+        "folds": [
+          {
+            "fold": 1,
+            "train_rows": 904,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.531,
+            "valid": {
+              "signals": 20,
+              "wins": 15,
+              "losses": 5,
+              "precision": 0.75,
+              "coverage": 0.0442,
+              "threshold": 0.94
+            },
+            "test": {
+              "signals": 16,
+              "wins": 8,
+              "losses": 8,
+              "precision": 0.5,
+              "coverage": 0.0354,
+              "threshold": 0.94
+            }
+          },
+          {
+            "fold": 2,
+            "train_rows": 1356,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.5664,
+            "valid": {
+              "signals": 36,
+              "wins": 21,
+              "losses": 15,
+              "precision": 0.5833,
+              "coverage": 0.0796,
+              "threshold": 0.88
+            },
+            "test": {
+              "signals": 40,
+              "wins": 23,
+              "losses": 17,
+              "precision": 0.575,
+              "coverage": 0.0885,
+              "threshold": 0.88
+            }
+          },
+          {
+            "fold": 3,
+            "train_rows": 1808,
+            "valid_rows": 452,
+            "test_rows": 452,
+            "base_rate": 0.5177,
+            "valid": {
+              "signals": 122,
+              "wins": 71,
+              "losses": 51,
+              "precision": 0.582,
+              "coverage": 0.2699,
+              "threshold": 0.7
+            },
+            "test": {
+              "signals": 145,
+              "wins": 73,
+              "losses": 72,
+              "precision": 0.5034,
+              "coverage": 0.3208,
+              "threshold": 0.7
+            }
+          }
+        ]
+      }
+    },
+    "INVERTED_V": {
+      "continuation": {
+        "accepted": false,
+        "rows": 1994,
+        "positive_label": 2,
+        "positive_name": "continuation",
+        "avg_test_precision": 0.5013,
+        "min_test_precision": 0.3714,
+        "passed_folds": 0,
+        "folds": [
+          {
+            "fold": 1,
+            "train_rows": 664,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.5,
+            "valid": {
+              "signals": 28,
+              "wins": 18,
+              "losses": 10,
+              "precision": 0.6429,
+              "coverage": 0.0843,
+              "threshold": 0.84
+            },
+            "test": {
+              "signals": 24,
+              "wins": 13,
+              "losses": 11,
+              "precision": 0.5417,
+              "coverage": 0.0723,
+              "threshold": 0.84
+            }
+          },
+          {
+            "fold": 2,
+            "train_rows": 996,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.4367,
+            "valid": {
+              "signals": 26,
+              "wins": 15,
+              "losses": 11,
+              "precision": 0.5769,
+              "coverage": 0.0783,
+              "threshold": 0.82
+            },
+            "test": {
+              "signals": 35,
+              "wins": 13,
+              "losses": 22,
+              "precision": 0.3714,
+              "coverage": 0.1054,
+              "threshold": 0.82
+            }
+          },
+          {
+            "fold": 3,
+            "train_rows": 1328,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.494,
+            "valid": {
+              "signals": 20,
+              "wins": 8,
+              "losses": 12,
+              "precision": 0.4,
+              "coverage": 0.0602,
+              "threshold": 0.84
+            },
+            "test": {
+              "signals": 22,
+              "wins": 13,
+              "losses": 9,
+              "precision": 0.5909,
+              "coverage": 0.0663,
+              "threshold": 0.84
+            }
+          }
+        ]
+      },
+      "failure": {
+        "accepted": false,
+        "rows": 1994,
+        "positive_label": 0,
+        "positive_name": "failure",
+        "avg_test_precision": 0.5714,
+        "min_test_precision": 0.5046,
+        "passed_folds": 0,
+        "folds": [
+          {
+            "fold": 1,
+            "train_rows": 664,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.5,
+            "valid": {
+              "signals": 112,
+              "wins": 65,
+              "losses": 47,
+              "precision": 0.5804,
+              "coverage": 0.3373,
+              "threshold": 0.76
+            },
+            "test": {
+              "signals": 109,
+              "wins": 55,
+              "losses": 54,
+              "precision": 0.5046,
+              "coverage": 0.3283,
+              "threshold": 0.76
+            }
+          },
+          {
+            "fold": 2,
+            "train_rows": 996,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.5633,
+            "valid": {
+              "signals": 20,
+              "wins": 13,
+              "losses": 7,
+              "precision": 0.65,
+              "coverage": 0.0602,
+              "threshold": 0.92
+            },
+            "test": {
+              "signals": 16,
+              "wins": 9,
+              "losses": 7,
+              "precision": 0.5625,
+              "coverage": 0.0482,
+              "threshold": 0.92
+            }
+          },
+          {
+            "fold": 3,
+            "train_rows": 1328,
+            "valid_rows": 332,
+            "test_rows": 332,
+            "base_rate": 0.506,
+            "valid": {
+              "signals": 29,
+              "wins": 18,
+              "losses": 11,
+              "precision": 0.6207,
+              "coverage": 0.0873,
+              "threshold": 0.82
+            },
+            "test": {
+              "signals": 17,
+              "wins": 11,
+              "losses": 6,
+              "precision": 0.6471,
+              "coverage": 0.0512,
+              "threshold": 0.82
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+; 利滚利：急速涨/跌各开一笔市价（默认 1 手），状态变则全平
+InpMagic=2025890
+InpEnableTrading=true
+volume=1

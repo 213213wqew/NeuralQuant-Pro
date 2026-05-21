@@ -1,0 +1,68 @@
+{
+  "csv_path": "gold_m1_history.csv",
+  "point": 0.01,
+  "confirm_bars": 3,
+  "future_bars": 8,
+  "min_future_pts": 18.0,
+  "rows": 610,
+  "pattern_counts": {
+    "V": 344,
+    "INVERTED_V": 266
+  },
+  "label_counts": {
+    "0": 314,
+    "1": 19,
+    "2": 277
+  },
+  "valid": {
+    "signals": 41,
+    "wins": 23,
+    "losses": 18,
+    "precision": 0.561,
+    "coverage": 0.4505,
+    "threshold": 0.83
+  },
+  "test": {
+    "signals": 50,
+    "wins": 29,
+    "losses": 21,
+    "precision": 0.58,
+    "coverage": 0.5435,
+    "threshold": 0.83
+  },
+  "accepted": true,
+  "acceptance_rule": "test precision >= 0.58 and test signals >= 30",
+  "raw_classification_report": {
+    "0": {
+      "precision": 0.6444444444444445,
+      "recall": 0.58,
+      "f1-score": 0.6105263157894737,
+      "support": 50.0
+    },
+    "1": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 4.0
+    },
+    "2": {
+      "precision": 0.5217391304347826,
+      "recall": 0.631578947368421,
+      "f1-score": 0.5714285714285714,
+      "support": 38.0
+    },
+    "accuracy": 0.5760869565217391,
+    "macro avg": {
+      "precision": 0.3887278582930757,
+      "recall": 0.403859649122807,
+      "f1-score": 0.393984962406015,
+      "support": 92.0
+    },
+    "weighted avg": {
+      "precision": 0.565742491073304,
+      "recall": 0.5760869565217391,
+      "f1-score": 0.567832625040863,
+      "support": 92.0
+    }
+  }
+}

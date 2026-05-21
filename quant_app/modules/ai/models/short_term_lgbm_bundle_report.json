@@ -1,0 +1,195 @@
+{
+  "csv_path": "E:\\python\\gold-quantification\\gold_m1_history.csv",
+  "point": 0.01,
+  "horizons": {
+    "h5": {
+      "config": {
+        "horizon": 5,
+        "min_move_pts": 10.0
+      },
+      "rows": 54296,
+      "label_counts": {
+        "0": 26787,
+        "1": 1227,
+        "2": 26282
+      },
+      "valid": {
+        "signals": 440,
+        "wins": 235,
+        "losses": 205,
+        "precision": 0.5341,
+        "coverage": 0.054,
+        "threshold": 0.63
+      },
+      "test": {
+        "signals": 360,
+        "wins": 159,
+        "losses": 201,
+        "precision": 0.4417,
+        "coverage": 0.0442,
+        "threshold": 0.63
+      },
+      "accepted": false,
+      "acceptance_rule": "test precision >= 0.58 and test signals >= 50",
+      "raw_classification_report": {
+        "0": {
+          "precision": 0.49306930693069306,
+          "recall": 0.5025227043390514,
+          "f1-score": 0.49775112443778113,
+          "support": 3964.0
+        },
+        "1": {
+          "precision": 0.031818181818181815,
+          "recall": 0.06086956521739131,
+          "f1-score": 0.041791044776119404,
+          "support": 230.0
+        },
+        "2": {
+          "precision": 0.4875852660300136,
+          "recall": 0.45229055935206275,
+          "f1-score": 0.4692752100840336,
+          "support": 3951.0
+        },
+        "accuracy": 0.46568446899938615,
+        "macro avg": {
+          "precision": 0.3374909182596295,
+          "recall": 0.3385609429695018,
+          "f1-score": 0.336272459765978,
+          "support": 8145.0
+        },
+        "weighted avg": {
+          "precision": 0.4773841989657499,
+          "recall": 0.46568446899938615,
+          "f1-score": 0.4710624619535775,
+          "support": 8145.0
+        }
+      }
+    },
+    "h10": {
+      "config": {
+        "horizon": 10,
+        "min_move_pts": 15.0
+      },
+      "rows": 54291,
+      "label_counts": {
+        "0": 26783,
+        "1": 1403,
+        "2": 26105
+      },
+      "valid": {
+        "signals": 1299,
+        "wins": 681,
+        "losses": 618,
+        "precision": 0.5242,
+        "coverage": 0.1595,
+        "threshold": 0.55
+      },
+      "test": {
+        "signals": 1206,
+        "wins": 605,
+        "losses": 601,
+        "precision": 0.5017,
+        "coverage": 0.1481,
+        "threshold": 0.55
+      },
+      "accepted": false,
+      "acceptance_rule": "test precision >= 0.58 and test signals >= 50",
+      "raw_classification_report": {
+        "0": {
+          "precision": 0.4849382716049383,
+          "recall": 0.505273990223823,
+          "f1-score": 0.4948973163663853,
+          "support": 3887.0
+        },
+        "1": {
+          "precision": 0.03496503496503497,
+          "recall": 0.08032128514056225,
+          "f1-score": 0.048721071863580996,
+          "support": 249.0
+        },
+        "2": {
+          "precision": 0.4997160704145372,
+          "recall": 0.43912175648702595,
+          "f1-score": 0.4674634794156706,
+          "support": 4008.0
+        },
+        "accuracy": 0.45972495088408644,
+        "macro avg": {
+          "precision": 0.3398731256615035,
+          "recall": 0.34157234395047037,
+          "f1-score": 0.33702728921521236,
+          "support": 8144.0
+        },
+        "weighted avg": {
+          "precision": 0.47845326199117805,
+          "recall": 0.45972495088408644,
+          "f1-score": 0.4677543026901006,
+          "support": 8144.0
+        }
+      }
+    },
+    "h20": {
+      "config": {
+        "horizon": 20,
+        "min_move_pts": 25.0
+      },
+      "rows": 54281,
+      "label_counts": {
+        "0": 26726,
+        "1": 1603,
+        "2": 25952
+      },
+      "valid": {
+        "signals": 455,
+        "wins": 243,
+        "losses": 212,
+        "precision": 0.5341,
+        "coverage": 0.0559,
+        "threshold": 0.63
+      },
+      "test": {
+        "signals": 375,
+        "wins": 176,
+        "losses": 199,
+        "precision": 0.4693,
+        "coverage": 0.0461,
+        "threshold": 0.63
+      },
+      "accepted": false,
+      "acceptance_rule": "test precision >= 0.58 and test signals >= 50",
+      "raw_classification_report": {
+        "0": {
+          "precision": 0.4654911838790932,
+          "recall": 0.48326359832635984,
+          "f1-score": 0.47421093148575827,
+          "support": 3824.0
+        },
+        "1": {
+          "precision": 0.04468412942989214,
+          "recall": 0.10211267605633803,
+          "f1-score": 0.06216505894962487,
+          "support": 284.0
+        },
+        "2": {
+          "precision": 0.49631101021566404,
+          "recall": 0.433457249070632,
+          "f1-score": 0.4627596242889271,
+          "support": 4035.0
+        },
+        "accuracy": 0.44529043350116665,
+        "macro avg": {
+          "precision": 0.33549544117488317,
+          "recall": 0.3396111744844433,
+          "f1-score": 0.3330452049081034,
+          "support": 8143.0
+        },
+        "weighted avg": {
+          "precision": 0.4660866395839305,
+          "recall": 0.44529043350116665,
+          "f1-score": 0.45416585567346845,
+          "support": 8143.0
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
 [![Quant Platform](https://img.shields.io/badge/Platform-Microsoft%20Qlib-green.svg)](https://github.com/microsoft/qlib)
 [![Broker Integration](https://img.shields.io/badge/Integration-MetaTrader%205-blue.svg)](https://www.mql5.com/)
 
-**NeuralQuant Pro** 是一款专为黄金（`XAUUSD`）交易打造的 AI 驱动型高频/网格智能量化交易系统。该系统基于 **MetaTrader 5 (MT5)** 平台，结合深度学习（PyTorch）、机器学习（LightGBM）及微软量化平台 Qlib 进行信号预测与策略优化，并配备了现代化的 **Flet (Flutter for Python)** 跨平台可视化交互界面。
+**NeuralQuant Pro** 是一款基于 **MetaTrader 5 (MT5)** 平台的 AI 驱动型多资产智能量化交易系统。系统融合了深度学习（PyTorch）、机器学习（LightGBM）及微软量化平台 Qlib 进行多因子信号预测与策略动态优化，支持外汇、贵金属（如黄金 `XAUUSD`）等多种市场资产的网格与对冲交易，并配备了现代化的 **Flet (Flutter for Python)** 跨平台可视化交互界面。
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复 Flet 在某些版本中 ft.alignment.center 缺失的错误，统一使用底层通用的 ft.Alignment(0, 0) 来确保 100% 运行正常。\"",
+  "EndLine": "1694",
+  "Instruction": "\"将 ft.alignment.center 替换为 ft.Alignment(0, 0)\"",
+  "ReplacementContent": "\"                            ft.Container(\\n                                content=pct_text,\\n                                alignment=ft.Alignment(0, 0),\\n                                width=42,\\n                                height=42,\\n                            )\\n                        ],\\n                        width=42,\\n                        height=42,\\n                    ),\\n                    ft.Text(title, size=10, color=\\\"#8b95a7\\\", weight=ft.FontWeight.W_600),\\n                ],\\n                horizontal_alignment=ft.CrossAxisAlignment.CENTER,\\n                spacing=5,\\n            ),\\n            alignment=ft.Alignment(0, 0),\\n            expand=True,\\n        )\"",
+  "StartLine": "1675",
+  "TargetContent": "\"                            ft.Container(\\n                                content=pct_text,\\n                                alignment=ft.alignment.center,\\n                                width=42,\\n                                height=42,\\n                            )\\n                        ],\\n                        width=42,\\n                        height=42,\\n                    ),\\n                    ft.Text(title, size=10, color=\\\"#8b95a7\\\", weight=ft.FontWeight.W_600),\\n                ],\\n                horizontal_alignment=ft.CrossAxisAlignment.CENTER,\\n                spacing=5,\\n            ),\\n            alignment=ft.alignment.center,\\n            expand=True,\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"修复alignment的属性缺失报错\"",
+  "toolSummary": "\"修复alignment报错\""
+}

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 update_loop 内部初始化循环计时变量，每30次循环（大约15秒）强行干预垃圾回收 gc.collect()，从根本上解决 Python 桌面端长期运行内存攀升的隐患。\"",
+  "EndLine": "1196",
+  "Instruction": "\"Add loop tick counter and periodic gc.collect() in update_loop.\"",
+  "ReplacementContent": "\"    async def update_loop(self):\\n        loop_tick = 0\\n        while not self.is_shutting_down:\\n            loop_tick += 1\\n            if loop_tick % 30 == 0:\\n                import gc\\n                gc.collect()\\n            try:\"",
+  "StartLine": "1194",
+  "TargetContent": "\"    async def update_loop(self):\\n        while not self.is_shutting_down:\\n            try:\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Adding garbage collection tick count to update_loop\"",
+  "toolSummary": "\"Edit app.py update_loop start\""
+}

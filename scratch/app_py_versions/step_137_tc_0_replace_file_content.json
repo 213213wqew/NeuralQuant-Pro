@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复 Flet 在顶层找不到 animation 属性的问题，将其修改为顶层导出的 Animation 构造函数。\"",
+  "EndLine": "570",
+  "Instruction": "\"将 `ft.animation.Animation(...)` 修改为顶层直接导出的 `ft.Animation(...)`，以适配当前 Flet 版本。\"",
+  "ReplacementContent": "\"                animate=ft.Animation(250, ft.AnimationCurve.EASE_OUT),\"",
+  "StartLine": "565",
+  "TargetContent": "\"                animate=ft.animation.Animation(250, ft.AnimationCurve.EASE_OUT),\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"修复 Flet 动画类名引用\"",
+  "toolSummary": "\"修复 Flet 动画类名引用\""
+}

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Appended startup height optimization to walkthrough.md.\"",
+  "EndLine": "97",
+  "Instruction": "\"Append startup window height default values optimization achievements to walkthrough.md.\"",
+  "ReplacementContent": "\"3. **AI 决策大脑细节“防截断”再升级**：\\n   * **优化**：在控制面板拓宽后，我们将 AI 智能风险评估部分的 `latest_ai_phase`（分析背景原因）字数截断限制从极其抠门的 `15` 个字上调至 **`25` 个字**（`reason_str[:25]`）。\\n   * **成果**：像 `bottom turn watch` 等关键的多周期研判词组，现在能够**毫无保留、舒舒服服地在一行内完整显示出来，彻底摆脱了 `bottom turn wat...` 的半截尴尬**！\\n4. **启动默认高度纵向加高 (920px)**：\\n   * **优化**：为了让主界面的黄金 K 线图和底部的多周期交易板块拥有更加舒展的纵向展示空间，我们将软件默认启动的 `window_height` 设定从 `850px` 向上提升至 **`920px`**（精确增加 `70px`）。\\n   * **自适应机制**：在 `draw_kline_img` 绘图初始化参数中，同步将宽高 Fallback 映射从旧的 `1350x850` 升级为 **`1405x920`**。\\n   * **成果**：由于左侧的 K 线主图布局容器设定为 `expand=True`，**新增的 70 像素高纵向空间被 K 线图完全吸收！这使得主图表的黄金价格走势区域展现出极为宽广的大气视野，蜡烛图的形态、网格与均线细节展现得更加淋漓尽致，底部交易 Tab 列表也更具呼吸感**！\\n\\n---\\n\\n## 🧪 验证与运行结果\\n\\n1. **静态语法编译检查**：\\n   运行命令 `python -m py_compile quant_app/ui/app.py`，**100% 成功编译，没有任何语法或类型错漏**！\\n2. **实盘运行验证**：\\n   通过 `python run_flet.py` 成功拉起程序并保持后台静默监听（任务 PID: `task-1207`）。系统启动极其平滑，连接 MT5 顺利，**零 Traceback 异常**。\\n3. **高频自动更新、宽屏加大与超高无抖动校验**：\\n   * 在行情不断跳动下，右上角浮动小胶囊的外边框**始终固定，纹丝不动**。\\n   * 动作切换时，后面的 `B: 83 S: 62` 数值**在确定的列内平滑更新，完全没有任何左右推搡和蹦跶**，视觉感受极其高\n<truncated 385 bytes>",
+  "StartLine": "81",
+  "TargetContent": "\"3. **AI 决策大脑细节“防截断”再升级**：\\n   * **优化**：在控制面板拓宽后，我们将 AI 智能风险评估部分的 `latest_ai_phase`（分析背景原因）字数截断限制从极其抠门的 `15` 个字上调至 **`25` 个字**（`reason_str[:25]`）。\\n   * **成果**：像 `bottom turn watch` 等关键的多周期研判词组，现在能够**毫无保留、舒舒服服地在一行内完整显示出来，彻底摆脱了 `bottom turn wat...` 的半截尴尬**！\\n\\n---\\n\\n## 🧪 验证与运行结果\\n\\n1. **静态语法编译检查**：\\n   运行命令 `python -m py_compile quant_app/ui/app.py`，**100% 成功编译，没有任何语法或类型错漏**！\\n2. **实盘运行验证**：\\n   通过 `python run_flet.py` 成功拉起程序并保持后台静默监听（任务 PID: `task-1184`）。系统启动极其平滑，连接 MT5 顺利，**零 Traceback 异常**。\\n3. **秒级高频自动更新与无抖动校验**：\\n   * 在行情不断跳动下，右上角浮动小胶囊的外边框**始终固定，纹丝不动**。\\n   * 动作切换时，后面的 `B: 83 S: 62` 数值**在确定的列内平滑更新，完全没有任何左右推搡和蹦跶**，视觉感受极其高级、平静和舒适！\\n   * 右侧 AI 决策大脑秒级同步自动刷新大获成功，且由于面板宽度拉伸，**所有的策略预设文本 and AI 背景研判不再发生截断，全部在一行内完整、高端地展现**，视觉表现极其震撼！\"",
+  "TargetFile": "\"C:\\\\Users\\\\Administrator\\\\.gemini\\\\antigravity\\\\brain\\\\67e1fe5d-c985-4ae7-9537-e11757774f71\\\\walkthrough.md\"",
+  "toolAction": "\"Updating walkthrough.md with height details\"",
+  "toolSummary": "\"Update walkthrough.md\""
+}

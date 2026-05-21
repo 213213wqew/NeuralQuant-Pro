@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 AQuantApp 初始化中增加了 self.last_chart_hash = None，用于保存 K 线绘图状态的指纹指纹哈希，用以过滤冗余的 Matplotlib 渲染，极大降低闲置状态下的 CPU 占用。\"",
+  "EndLine": "78",
+  "Instruction": "\"Add self.last_chart_hash = None in __init__ for K-line drawing finger-print caching.\"",
+  "ReplacementContent": "\"        self.last_chart_image = None\\n        self.last_chart_size = (0, 0)\\n        self.last_chart_hash = None # 用于指纹缓存过滤，闲置时降95%的CPU占用\\n        self.latest_curve_action = \\\"WAIT\\\"\\n        self.latest_curve_reason = \\\"\\\"\\n        self.is_shutting_down = False\"",
+  "StartLine": "73",
+  "TargetContent": "\"        self.last_chart_image = None\\n        self.last_chart_size = (0, 0)\\n        self.latest_curve_action = \\\"WAIT\\\"\\n        self.latest_curve_reason = \\\"\\\"\\n        self.is_shutting_down = False\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Adding last_chart_hash to AQuantApp __init__\"",
+  "toolSummary": "\"Edit app.py __init__\""
+}

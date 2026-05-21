@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Remove the shadow/glow background from the profit numbers in the transaction list cards to make the text clean and highly legible as requested by the user.\"",
+  "EndLine": "1786",
+  "Instruction": "\"Remove the BoxShadow shadow parameter from the right Container in _build_trade_card.\"",
+  "ReplacementContent": "\"            right=ft.Container(\\n                content=ft.Text(\\n                    f\\\"{profit:+,.2f}\\\",\\n                    size=14,\\n                    weight=ft.FontWeight.W_900,\\n                    color=self._profit_color(profit),\\n                ),\\n            ),\"",
+  "StartLine": "1774",
+  "TargetContent": "\"            right=ft.Container(\\n                content=ft.Text(\\n                    f\\\"{profit:+,.2f}\\\",\\n                    size=14,\\n                    weight=ft.FontWeight.W_900,\\n                    color=self._profit_color(profit),\\n                ),\\n                shadow=ft.BoxShadow(\\n                    blur_radius=8,\\n                    color=f\\\"{self._profit_color(profit)}22\\\",\\n                ) if profit != 0 else None,\\n            ),\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Removing shadow from profit container in app.py\"",
+  "toolSummary": "\"Remove profit shadow\""
+}

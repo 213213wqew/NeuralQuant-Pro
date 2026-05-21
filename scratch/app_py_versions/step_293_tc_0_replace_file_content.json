@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Adjust the opacity of the dark overlay from 93% to 75% (color code #c014181c) so the gorgeous glowing blue chip background becomes brighter and more distinct while keeping pristine text contrast.\"",
+  "EndLine": "860",
+  "Instruction": "\"Change bgcolor from #ee14181c to #c014181c to make the background brighter.\"",
+  "ReplacementContent": "\"                padding=40,\\n                bgcolor=\\\"#c014181c\\\",\\n            ),\"",
+  "StartLine": "855",
+  "TargetContent": "\"                padding=40,\\n                bgcolor=\\\"#ee14181c\\\",\\n            ),\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Brighten background overlay in app.py\"",
+  "toolSummary": "\"Replace app.py opacity\""
+}

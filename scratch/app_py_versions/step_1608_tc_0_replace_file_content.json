@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Modify section title to reflect both hedge control and emergency actions\"",
+  "EndLine": "818",
+  "Instruction": "\"Change make_section_title(\\\"智能对冲锁仓\\\") to make_section_title(\\\"对冲风控与紧急避险\\\")\"",
+  "ReplacementContent": "\"                    # 智能锁仓\\n                    make_section_title(\\\"对冲风控与紧急避险\\\"),\\n                    hedge_panel,\"",
+  "StartLine": "814",
+  "TargetContent": "\"                    # 智能锁仓\\n                    make_section_title(\\\"智能对冲锁仓\\\"),\\n                    hedge_panel,\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Updating section title in app.py\"",
+  "toolSummary": "\"Change section title in app.py\""
+}

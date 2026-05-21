@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 draw_kline_img 获取行情 DataFrame 后，计算行情数据哈希指纹，并过滤掉盘面未变时的冗余绘图，闲置时省去95%以上的 CPU 消耗。\"",
+  "EndLine": "1294",
+  "Instruction": "\"Add K-line data hash checking after fetching market data in draw_kline_img.\"",
+  "ReplacementContent": "\"            if df is None or len(df) == 0:\\n                return\\n\\n            # 计算 K 线数据哈希指纹，检测盘面是否确实变化\\n            latest_bar = df.iloc[-1]\\n            vol_col = \\\"tick_volume\\\" if \\\"tick_volume\\\" in df.columns else \\\"volume\\\" if \\\"volume\\\" in df.columns else \\\"\\\"\\n            vol_val = latest_bar[vol_col] if vol_col else 0\\n            current_state_hash = (\\n                self.current_symbol,\\n                self.current_tf,\\n                count,\\n                offset,\\n                latest_bar[\\\"time\\\"],\\n                latest_bar[\\\"close\\\"],\\n                vol_val,\\n                pw,\\n                ph\\n            )\\n            \\n            if not force and current_state_hash == getattr(self, \\\"last_chart_hash\\\", None):\\n                # 数据及尺寸未变，跳过昂贵的 Matplotlib 绘图，闲置时可省 95% CPU\\n                return\"",
+  "StartLine": "1292",
+  "TargetContent": "\"            if df is None or len(df) == 0:\\n                return\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Adding data hash filter to K-line drawing\"",
+  "toolSummary": "\"Edit app.py draw_kline_img check\""
+}

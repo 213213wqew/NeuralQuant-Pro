@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复 Flet 对齐属性在某些版本中找不到 top_left 导致的 AttributeError 错误，将其修改为通用的 ft.Alignment(-1, -1) 实例。\"",
+  "EndLine": "563",
+  "Instruction": "\"将 `alignment=ft.alignment.top_left,` 替换为最通用且各版本均兼容的 `alignment=ft.Alignment(-1, -1),`，以消除 Flet 在 Windows 下运行时的崩溃报错。\"",
+  "ReplacementContent": "\"                        ft.Container(\\n                            content=content_column,\\n                            padding=ft.padding.all(16),\\n                            alignment=ft.Alignment(-1, -1),\\n                        ),\"",
+  "StartLine": "553",
+  "TargetContent": "\"                        ft.Container(\\n                            content=content_column,\\n                            padding=ft.padding.all(16),\\n                            alignment=ft.alignment.top_left,\\n                        ),\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"修复 Flet 对齐属性报错\"",
+  "toolSummary": "\"修复 Flet 对齐属性报错\""
+}

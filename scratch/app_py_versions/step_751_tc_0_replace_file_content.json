@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 update_loop 中专门针对会话销毁（destroyed session）等退出异常进行检测与熔断，优雅断开 MT5、停止策略并干净退出线程，防止出现 Python 后台孤儿进程占用系统资源。\"",
+  "EndLine": "1251",
+  "Instruction": "\"Add session destroyed exception checks and safety exit code to update_loop.\"",
+  "ReplacementContent": "\"            except Exception as e:\\n                logger.error(f\\\"Loop error: {e}\\\")\\n                if \\\"destroyed session\\\" in str(e).lower() or \\\"session\\\" in str(e).lower() or \\\"connection closed\\\" in str(e).lower():\\n                    logger.info(\\\"检测到 Flet 会话已销毁，正在触发主循环熔断停机...\\\")\\n                    self.is_shutting_down = True\\n                    try:\\n                        strategy_runner.stop()\\n                    except Exception:\\n                        pass\\n                    try:\\n                        mt5_client.disconnect()\\n                    except Exception:\\n                        pass\\n                    try:\\n                        history_sync_service.stop()\\n                    except Exception:\\n                        pass\\n                    break\\n                await asyncio.sleep(1)\"",
+  "StartLine": "1249",
+  "TargetContent": "\"            except Exception as e:\\n                logger.error(f\\\"Loop error: {e}\\\")\\n                await asyncio.sleep(1)\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Adding session destruction loop exit guard to update_loop\"",
+  "toolSummary": "\"Edit app.py update_loop end\""
+}

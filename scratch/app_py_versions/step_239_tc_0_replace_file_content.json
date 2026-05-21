@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Restore missing add_log line inside on_strategy_changed method.\"",
+  "EndLine": "1687",
+  "Instruction": "\"Add the success log line in ok block of on_strategy_changed.\"",
+  "ReplacementContent": "\"            if ok:\\n                self.current_strategy_text.value = f\\\"策略: {strategy_runner.strategy_name}\\\"\\n                self.current_preset_text.value = f\\\"预设: {strategy_runner.current_config_file or selected_preset or '未选择'}\\\"\\n                self.current_preset_hint.value = f\\\"当前预设: {strategy_runner.current_config_file or selected_preset or '未选择'}\\\"\\n                self.add_log(f\\\"运行中策略已切换为: {strategy_runner.strategy_name}\\\", \\\"SUCCESS\\\")\\n            else:\\n                self.add_log(f\\\"策略切换失败: {selected_strategy}\\\", \\\"ERROR\\\")\\n        self.page.update()\"",
+  "StartLine": "1679",
+  "TargetContent": "\"            if ok:\\n                self.current_strategy_text.value = f\\\"策略: {strategy_runner.strategy_name}\\\"\\n                self.current_preset_text.value = f\\\"预设: {strategy_runner.current_config_file or selected_preset or '未选择'}\\\"\\n                self.current_preset_hint.value = f\\\"当前预设: {strategy_runner.current_config_file or selected_preset or '未选择'}\\\"\\n            else:\\n                self.add_log(f\\\"策略切换失败: {selected_strategy}\\\", \\\"ERROR\\\")\\n        self.page.update()\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Restore missing add_log line inside on_strategy_changed\"",
+  "toolSummary": "\"Replace app.py log restore\""
+}

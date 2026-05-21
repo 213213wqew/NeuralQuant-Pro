@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修改 chart_range_text 格式化为 Curve {curve_signal.action:<12}，实现完美物理列对齐。\"",
+  "EndLine": "1422",
+  "Instruction": "\"将 Curve 动作文本对齐改写为 Curve {curve_signal.action:<12} 以完全对齐 Consolas 下后面的买卖分，彻底解决内部字符晃动。\"",
+  "ReplacementContent": "\"            self.chart_range_text.value = (\\n                f\\\"{count:>3} 根K线 | 偏移 {offset:>3} | \\\"\\n                f\\\"Curve {curve_signal.action:<12} B:{curve_signal.buy.score:>3.0f} \\\"\\n                f\\\"S:{curve_signal.sell.score:>3.0f}\\\"\\n            )\"",
+  "StartLine": "1418",
+  "TargetContent": "\"            self.chart_range_text.value = (\\n                f\\\"{count:>3} 根K线 | 偏移 {offset:>3} | \\\"\\n                f\\\"Curve {curve_signal.action:<4} B:{curve_signal.buy.score:>3.0f} \\\"\\n                f\\\"S:{curve_signal.sell.score:>3.0f}\\\"\\n            )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app/ui/app.py\"",
+  "toolAction": "\"Formatting action string output to 12 chars\"",
+  "toolSummary": "\"File edit\""
+}

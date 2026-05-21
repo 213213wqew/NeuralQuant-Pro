@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Fix indentation error by putting back the else body inside on_strategy_changed.\"",
+  "EndLine": "1687",
+  "Instruction": "\"Add the else body for strategy change failure logs.\"",
+  "ReplacementContent": "\"            else:\\n                self.add_log(f\\\"策略切换失败: {selected_strategy}\\\", \\\"ERROR\\\")\\n        self.page.update()\"",
+  "StartLine": "1684",
+  "TargetContent": "\"                self.add_log(f\\\"运行中策略已切换为: {strategy_runner.strategy_name}\\\", \\\"SUCCESS\\\")\\n            else:\\n        self.page.update()\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Fix indentation error in app.py\"",
+  "toolSummary": "\"Replace app.py indentation\""
+}

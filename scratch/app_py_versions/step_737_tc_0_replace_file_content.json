@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 draw_kline_img 结束渲染成功后，更新并存储最新的 K 线绘图状态指纹 hash。\"",
+  "EndLine": "1482",
+  "Instruction": "\"Store the K-line data state hash at the end of K-line rendering inside the try block.\"",
+  "ReplacementContent": "\"                    self.last_chart_image = result\\n                    self.last_chart_size = chart_size\\n                    self.last_chart_hash = current_state_hash\\n                self.last_chart_render_at = now_ts\\n                if not defer_update:\\n                    self.chart_range_text.update()\"",
+  "StartLine": "1477",
+  "TargetContent": "\"                    self.last_chart_image = result\\n                    self.last_chart_size = chart_size\\n                self.last_chart_render_at = now_ts\\n                if not defer_update:\\n                    self.chart_range_text.update()\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Adding last_chart_hash update to draw_kline_img\"",
+  "toolSummary": "\"Edit app.py draw_kline_img end\""
+}

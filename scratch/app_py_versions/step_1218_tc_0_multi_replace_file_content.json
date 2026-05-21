@@ -1,0 +1,8 @@
+{
+  "Description": "\"Increased window_height to 980px and updated chart layout height fallback to 980px for extra vertical space.\"",
+  "Instruction": "\"Increase window_height and fallback height to 980px.\"",
+  "ReplacementChunks": "[{\"AllowMultiple\":false,\"EndLine\":50,\"ReplacementContent\":\"        self.page.window_width = 1405\\n        self.page.window_height = 980\",\"StartLine\":48,\"TargetContent\":\"        self.page.window_width = 1405\\n        self.page.window_height = 920\"},{\"AllowMultiple\":false,\"EndLine\":1351,\"ReplacementContent\":\"            win_w = self.page.width if (self.page and self.page.width) else 1405\\n            win_h = self.page.height if (self.page and self.page.height) else 980\",\"StartLine\":1348,\"TargetContent\":\"            win_w = self.page.width if (self.page and self.page.width) else 1405\\n            win_h = self.page.height if (self.page and self.page.height) else 920\"}]",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Increasing window height to 980px in app.py\"",
+  "toolSummary": "\"Update window height in app.py\""
+}

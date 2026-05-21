@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 draw_kline_img 方法中接入实机 AI 信号 curve_signal 分析数据，提取并实时换算最新的风险评分、信心指数与研判背景字样，实现 UI 缓存直连。\"",
+  "EndLine": "1411",
+  "Instruction": "\"在 latest_curve_reason 赋值后插入由 curve_signal 换算 UI 最新风险和方向分数的逻辑\"",
+  "ReplacementContent": "\"            self.latest_curve_action = curve_signal.action\\n            self.latest_curve_reason = curve_signal.reason\\n            \\n            # --- 核心直连数据链路：从实机 AI 曲线分析引擎 curve_signal 提取数据并计算 UI 的风险和方向信心分 ---\\n            buy_score = 50.0\\n            sell_score = 50.0\\n            if hasattr(curve_signal, 'buy') and curve_signal.buy is not None:\\n                buy_score = getattr(curve_signal.buy, 'score', 50.0)\\n            if hasattr(curve_signal, 'sell') and curve_signal.sell is not None:\\n                sell_score = getattr(curve_signal.sell, 'score', 50.0)\\n                \\n            # 计算方向分数 (中点50.0，多头加分，空头减分，限制在 5.0 - 95.0 之间)\\n            self.latest_dir_score = min(max(50.0 + (buy_score - sell_score) / 2.0, 5.0), 95.0)\\n            \\n            # 计算风险评估分数：未决冲突高（两者分值相近）或两边极端评分相加时，风险高\\n            score_diff = abs(buy_score - sell_score)\\n            self.latest_risk_score = min(max(95.0 - score_diff * 0.8 - (buy_score + sell_score) * 0.15, 10.0), 95.0)\\n            \\n            # AI 研判背景提取 (15字截断防爆排版)\\n            reason_str = curve_signal.reason if curve_signal.reason else \\\"---\\\"\\n            self.latest_ai_phase = reason_str[:15] + \\\"...\\\" if len(reason_str) > 15 else reason_str\\n\\n            self.chart_range_text.value = (\"",
+  "StartLine": "1407",
+  "TargetContent": "\"            self.latest_curve_action = curve_signal.action\\n            self.latest_curve_reason = curve_signal.reason\\n            self.chart_range_text.value = (\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"接入实机AI信号源数据\"",
+  "toolSummary": "\"接入实机AI信号源数据\""
+}

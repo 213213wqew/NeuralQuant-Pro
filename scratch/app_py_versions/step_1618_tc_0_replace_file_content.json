@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Change close_dialog signature to make the event parameter optional (e=None)\"",
+  "EndLine": "219",
+  "Instruction": "\"Change close_dialog(self, e) to close_dialog(self, e=None)\"",
+  "ReplacementContent": "\"    def close_dialog(self, e=None):\\n        if getattr(self.page, \\\"dialog\\\", None):\\n            self.page.dialog.open = False\\n            self.page.update()\"",
+  "StartLine": "215",
+  "TargetContent": "\"    def close_dialog(self, e):\\n        if getattr(self.page, \\\"dialog\\\", None):\\n            self.page.dialog.open = False\\n            self.page.update()\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Updating close_dialog signature in app.py\"",
+  "toolSummary": "\"Make event parameter optional in close_dialog\""
+}

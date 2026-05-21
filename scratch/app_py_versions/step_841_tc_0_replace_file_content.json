@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复 K 线渲染时数据哈希提取中因 DataFrame 列名大小写不同导致的 KeyError 异常，提升兼容性与稳健度。\"",
+  "EndLine": "1401",
+  "Instruction": "\"在 draw_kline_img 方法中，对最新K线数据的 `Close` 和 `time` 列名访问增加大小写容错逻辑。\"",
+  "ReplacementContent": "\"            # 计算 K 线数据哈希指纹，检测盘面是否确实变化\\n            latest_bar = df.iloc[-1]\\n            vol_col = \\\"Volume\\\" if \\\"Volume\\\" in df.columns else \\\"tick_volume\\\" if \\\"tick_volume\\\" in df.columns else \\\"volume\\\" if \\\"volume\\\" in df.columns else \\\"\\\"\\n            vol_val = latest_bar[vol_col] if vol_col else 0\\n            close_val = latest_bar[\\\"Close\\\"] if \\\"Close\\\" in df.columns else latest_bar[\\\"close\\\"] if \\\"close\\\" in df.columns else 0\\n            time_val = latest_bar[\\\"time\\\"] if \\\"time\\\" in df.columns else latest_bar[\\\"Time\\\"] if \\\"Time\\\" in df.columns else 0\\n            current_state_hash = (\\n                self.current_symbol,\\n                self.current_tf,\\n                count,\\n                offset,\\n                time_val,\\n                close_val,\\n                vol_val,\\n                pw,\\n                ph\\n            )\"",
+  "StartLine": "1386",
+  "TargetContent": "\"            # 计算 K 线数据哈希指纹，检测盘面是否确实变化\\n            latest_bar = df.iloc[-1]\\n            vol_col = \\\"tick_volume\\\" if \\\"tick_volume\\\" in df.columns else \\\"volume\\\" if \\\"volume\\\" in df.columns else \\\"\\\"\\n            vol_val = latest_bar[vol_col] if vol_col else 0\\n            current_state_hash = (\\n                self.current_symbol,\\n                self.current_tf,\\n                count,\\n                offset,\\n                latest_bar[\\\"time\\\"],\\n                latest_bar[\\\"close\\\"],\\n                vol_val,\\n                pw,\\n                ph\\n            )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Fixing draw_kline_img close key error\"",
+  "toolSummary": "\"Fix key error in app.py\""
+}

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Define the StrategySelectorState class at the module level in app.py to hold active strategy state values.\"",
+  "EndLine": "37",
+  "Instruction": "\"Define StrategySelectorState class.\"",
+  "ReplacementContent": "\"logger = get_logger(\\\"AQuantUI\\\")\\n\\n\\nclass StrategySelectorState:\\n    def __init__(self, value):\\n        self.value = value\\n\\n\\nclass AQuantApp:\"",
+  "StartLine": "33",
+  "TargetContent": "\"logger = get_logger(\\\"AQuantUI\\\")\\n\\n\\nclass AQuantApp:\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Injecting StrategySelectorState helper class into app.py\"",
+  "toolSummary": "\"Define StrategySelectorState class\""
+}

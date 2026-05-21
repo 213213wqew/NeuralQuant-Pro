@@ -1,0 +1,280 @@
++            None, lambda: hedge_manager.close_all(symbol)
++
++        )
++
++        msg = result.get("message", "")
++
++        if result.get("status") == "success":
++
++            self._show_snack(f"✅ {msg}", color="#10b981")
++
++            self._refresh_hedge_badge()
++
++        else:
++
++            self._show_snack(f"❌ {msg}", color="#ef4444")
++
++
++
++    # ---------- 智能解仓 ----------
++
++
++
++    def handle_unlock_hedge(self, e):
++
++        """弹出 MQL5 四策略解仓对话框，用户选择后委托 hedge_manager 执行。"""
++
++        symbol = self.current_symbol
++
++
++
++        def _strategy_card(tag, label, desc, bg, border, strategy_key):
++
++            return ft.Container(
++
++                content=ft.Column([
++
++                    ft.Row([
++
++                        ft.Container(
++
++                            ft.Text(tag, size=10, color=ft.Colors.WHITE, weight=ft.FontWeight.BOLD),
++
++                            bgcolor=border, border_radius=4,
++
++                            padding=ft.padding.symmetric(horizontal=6, vertical=2),
++
++                        ),
++
++                        ft.Text(label, size=12, weight=ft.FontWeight.W_600),
++
++                    ], spacing=8),
++
++                    ft.Text(desc, size=10, color=ft.Colors.GREY_400),
++
++                ], spacing=4),
++
++                padding=10, border_radius=8, bgcolor=bg,
++
++                border=ft.border.all(1, border),
++
++                on_click=lambda ev: self._run_unlock_strategy(ev, strategy_key, symbol),
++
++            )
++
++
++
++        strategy_btns = ft.Column([
++
++            _strategy_card("S1", "双向 CloseBy 冲抵解仓",
++
++                           "利用 MT5 TRADE_ACTION_CLOSE_BY 将多空两两冲抵，\n零点差成本，速度最快。",
++
++                           "#0f172a", "#1d4ed8", "closeby"),
++
++            _strategy_card("S2", "盈利冲抵法（温和渐进）",
++
++                           "每赚取 $5 利润后，部分平仓浮亏最重的对冲单，\n净值平滑下降，零断崖。",
++
++                           "#0f0a1e", "#6d28d9", "profit_offset"),
++
++            _strategy_card("S3", "区间突破跟踪法（趋势解锁）",
++
++                           "ATR 区间突破后平亏损侧，盈利侧加 Trailing Stop，\n用趋势利润覆盖亏损。",
++
++                           "#0a1f14", "#065f46", "breakout_trail"),
++
++            _strategy_card("S4", "DCA 均价合并法（网格抄底）",
++
++                           "1.5 倍马丁 DCA 降低均价，综合保本价达到后\n触发大篮子全平。",
++
++                           "#1a0e00", "#92400e", "dca_merge"),
++
++        ], spacing=8)
++
++
++
++        dialog = ft.AlertDialog(
++
++            modal=True,
++
++            title=ft.Row([
++
++                ft.Icon(ft.Icons.AUTO_FIX_HIGH, color=ft.Colors.PURPLE_300, size=22),
++
++                ft.Text("MQL5 智能解仓助手", weight=ft.FontWeight.BOLD),
++
++            ], spacing=10),
++
++            content=ft.Container(
++
++                content=ft.Column([
++
++                    ft.Text(f"当前品种：{symbol}　请选择解仓策略：", size=12, color=ft.Colors.GREY_400),
++
++                    strategy_btns,
++
++                ], spacing=10, scroll=ft.ScrollMode.AUTO),
++
++                width=440, height=420,
++
++            ),
++
++            actions=[ft.TextButton("关闭", on_click=self.close_dialog)],
++
++            actions_alignment=ft.MainAxisAlignment.END,
++
++        )
++
++        self.page.dialog = dialog
++
++        dialog.open = True
++
++        self.page.update()
++
++
++
++    def _run_unlock_strategy(self, e, strategy, symbol):
++
++        self.close_dialog(e)
++
++        self.page.run_task(self._do_unlock_strategy, strategy, symbol)
++
++
++
++    async def _do_unlock_strategy(self, strategy, symbol):
++
++        # 颜色映射
++
++        snack_colors = {
++
++            "closeby":        "#3b82f6",
++
++            "profit_offset":  "#a855f7",
++
++            "breakout_trail": "#22c55e",
++
++            "dca_merge":      "#f59e0b",
++
++        }
++
++        self._show_snack("⏳ 正在执行解仓策略，请稍候...", color=snack_colors.get(strategy, "#3b82f6"))
+ 
+-        # 移除碎片的单独 update()，由 update_loop 统一刷新
+-        self.asset_balance.value = f"结余: {acc['balance']:,.2f} USD"
+-        self.asset_equity.value = f"净值: {acc['equity']:,.2f}"
+-        self.asset_margin.value = f"可用预付款: {acc['margin_free']:,.2f}"
+-        self.asset_profit.value = f"{acc['profit']:+,.2f}"
+-        self.asset_profit.color = self._profit_color(acc["profit"])
+ 
+-        self.trade_list.controls.clear()
+-        self.trade_list.controls.append(self._build_trade_header_row())
+-        if pos:
+-            for p in pos:
+-                self.trade_list.controls.append(self._build_trade_card(p))
+-        else:
+-            self.trade_list.controls.append(self._build_trade_empty_state())
+ 
+-        self.exposure_list.controls.clear()
+-        self.exposure_list.controls.append(self._build_exposure_summary_bar(acc))
+-        self.exposure_list.controls.append(self._build_exposure_header_row())
+-        exp_data = mt5_client.get_market_exposure()
+-        if exp_data:
+-            for e in exp_data:
+-                self.exposure_list.controls.append(self._build_exposure_card(e))
+-        else:
+-            self.exposure_list.controls.append(self._build_exposure_empty_state())
++        result = await asyncio.get_event_loop().run_in_executor(
+ 
+-    def _infer_account_mode(self, server_name):
+-        server = str(server_name).strip().lower()
+-        demo_keywords = ("demo", "test", "trial", "模拟", "contest")
+-        if any(keyword in server for keyword in demo_keywords):
+-            return "测试账户"
+-        return "真实账户"
++            None, lambda: hedge_manager.unlock(symbol, strategy)
+ 
+-    def update_history_data(self, history):
+-        self.history_list.controls.clear()
+-        deals = history.get("deals", []) if history else []
++        )
+ 
+-        if deals:
+-            for deal in deals[:80]:
+-                self.history_list.controls.append(self._build_history_card(deal))
+-        else:
+-            self.history_list.controls.append(
+-                self._build_empty_panel("最近没有交易历史", "这里显示的是从 MT5 账户历史中读取到的成交记录。")
+-            )
+-        self.history_list.update()
++        msg = result.get("message", "")
+ 
+-    def update_news_data(self, news_items):
+-        self.news_list.controls.clear()
+-        if news_items:
+-            for item in news_items[:20]:
+-                self.news_list.controls.append(self._build_news_card(item))
+-        else:
+-            self.news_list.controls.append(
+-                self._build_empty_panel("暂时没有资讯", "新闻来自外部资讯源，不是 MT5 账户数据。")
+-            )
+-        self.news_list.update()
++        status = result.get("status")
+ 
+-    async def refresh_secondary_panels(self):
+-        now_ts = time.time()
++        if status == "success":
+ 
+-        if now_ts - self.last_history_refresh >= 5:
+-            history = await asyncio.to_thread(mt5_client.get_trade_history, 90)
+-            self.update_history_data(history)
+-            self.last_history_refresh = now_ts
++            self._show_snack(f"✅ {msg}", color="#10b981")
+ 
+-        if now_ts - self.last_news_refresh >= 60:
+-            news_items = await asyncio.to_thread(news_engine.get_real_news, 20)
+-            self.update_news_data(news_items)
+-            self.last_news_refresh = now_ts
++            self._refresh_hedge_badge()
+ 
+-    async def refresh_secondary_panels_non_blocking(self):
+-        if self.secondary_refresh_running:
+-            return
++        elif status == "activated":
+ 
+-        self.secondary_refresh_running = True
+-        try:
+-            await self.refresh_secondary_panels()
+-            self.page.update()
+-        finally:
+-            self.secondary_refresh_running = False
++            self._show_snack(f"📌 {msg}", color=snack_colors.get(strategy, "#6366f1"))
+ 
+-    async def save_settings(self, e):
+-        mt5_client.mt5_path = self.mt5_path_input.value
+-        self.app_env["MT5_PATH"] = self.mt5_path_input.value
+-        self.app_env["ACTIVE_STRATEGY"] = self.strategy_selector.value or "GridMartingaleMA01"
+-        if self.preset_selector.visible and self.preset_selector.value:
+-            self.app_env["ACTIVE_PRESET"] = self.preset_selector.value
+         else:
+-            self.app_env["ACTIVE_PRESET"] = None
+-        self.save_env_settings()
+-        selected_preset = self.preset_selector.value if self.preset_selector.visible else None
+-        self.current_preset_hint.value = f"当前预设: {selected_preset or '未选择'}"
+-        self.current_strategy_text.value = f"策略: {self.strategy_selector.value}"
+-        self.current_preset_text.value = f"预设: {selected_preset or '未选择'}"
+-        self.save_feedback_text.value = f"已保存：{self.strategy_selector.value} / {selected_preset or '无预设'}"
+-        self.save_feedback_box.visible = True
+-        self.show_page_notice(f"保存成功：{self.strategy_selector.value} / {selected_preset or '无预设'}")
+-        self.add_log(f"配置已保存，策略={self.strategy_selector.value}，预设={selected_preset or '无'}", "SUCCESS")
+-        self.page.update()
+ 
+-    async def toggle_algo(self, e):
+-        if self.algo_switch.value:
+-            self.strategy_start_time = time.time()
+-            self.add_log("正在启动自动化执行...")
+-            selected_strategy = self.strategy_selector.value or "GridMartingaleMA01"
+-            selected_preset = self.preset_selector.value if self.preset_selector.visible else None
+-            await asyncio.to_thread(strategy_runner.set_strategy, selected_strategy, selected_preset)
+-            await asyncio.to_thread(strategy_runner.start)
+-            self.current_preset_hint.value = f"当前预设: {strategy_runner.current_config_file or selected_preset or '未选择'}"

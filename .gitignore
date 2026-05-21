@@ -138,5 +138,8 @@ dmypy.json
 quant_app/backend/logs/
 ReportHistory-*.html
 ReportHistory-*.md
-scratch/
+!scratch/
 brain/
+
+# Allow tracking compiled .pyd files because they contain the encrypted strategy logic
+!*.pyd

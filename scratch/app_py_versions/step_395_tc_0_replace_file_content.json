@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Improve _profit_color and _chip functions to support modern dark tech aesthetics, including semi-transparent backgrounds and rounded border radiuses.\"",
+  "EndLine": "1432",
+  "Instruction": "\"Update `_profit_color` to use modern green/red hex codes and add `bg_color` support to `_chip` with a border radius of 12.\"",
+  "ReplacementContent": "\"    def _profit_color(self, value):\\n        return \\\"#10b981\\\" if value >= 0 else \\\"#f43f5e\\\"\\n\\n    def _chip(self, text, color, bg_color=None):\\n        bgcolor = bg_color if bg_color else \\\"#1a222c\\\"\\n        border_color = color if bg_color else \\\"#2a313a\\\"\\n        return ft.Container(\\n            content=ft.Text(text, size=10, color=color, weight=ft.FontWeight.W_600),\\n            padding=ft.padding.symmetric(horizontal=8, vertical=2),\\n            bgcolor=bgcolor,\\n            border_radius=12,\\n            border=ft.border.all(1, border_color),\\n        )\"",
+  "StartLine": "1418",
+  "TargetContent": "\"    def _profit_color(self, value):\\n        return \\\"#3ddc84\\\" if value >= 0 else \\\"#ff6b6b\\\"\\n\\n    def _chip(self, text, color):\\n        return ft.Container(\\n            content=ft.Text(text, size=10, color=color, weight=ft.FontWeight.W_600),\\n            padding=ft.padding.symmetric(horizontal=8, vertical=2),\\n            bgcolor=\\\"#1a222c\\\",\\n            border_radius=999,\\n            border=ft.border.all(1, \\\"#2a313a\\\"),\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Updating _profit_color and _chip in app.py\"",
+  "toolSummary": "\"Replace _profit_color and _chip in app.py\""
+}

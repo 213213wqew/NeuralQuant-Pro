@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Updated task.md to include the control panel widening and aesthetic polishing work.\"",
+  "EndLine": "14",
+  "Instruction": "\"Update task.md with the newly completed control panel widening tasks and optimizations.\"",
+  "ReplacementContent": "\"# 实时自动更新重构任务列表\\n\\n- [x] 修改 `quant_app/ui/app.py` 中 `draw_kline_img` 的行情刷新与 AI 数据直连链路\\n  - [x] 针对 M1 周期增加 `fetch_count` 自适应放大逻辑\\n  - [x] 将 AI 计算与 UI 状态标记（`latest_dir_score` 等）移至哈希过滤拦截的前方\\n  - [x] 在哈希指纹 `current_state_hash` 中并入 `len(df)` 防止假指纹相同\\n  - [x] 在 `plot_sync` 绘图闭包内通过 `iloc[-count:]` 精细裁剪画图数据\\n- [x] 彻底消除 K 线图右上角状态胶囊的弹跳与抖动\\n  - [x] 给 `self.chart_overlay_badge` 毛玻璃浮标固定宽度 `width=385`，彻底根治外边框的晃动\\n  - [x] 将动作文本格式化从 `Curve {curve_signal.action:<4}` 改为 `Curve {curve_signal.action:<12}`，在 Consolas 等宽字体下将买卖分数物理起始列绝对对齐，消除内容变宽的推搡抖动\\n- [x] “量化控制中心”右侧面板整体宽度加宽与排版优化\\n  - [x] 将 `control_panel` 容器的宽度由原先的 `285px` 加宽至更具表现力的 `340px`，释放横向视觉张力\\n  - [x] 将页面窗口默认宽度由 `1350px` 对应调大至 `1405px`，以完全保持左侧 K 线图表的渲染尺寸，完美维持黄金走势图比例\\n  - [x] 将 AI 智能决策大脑中的分析背景原因字数截断（`self.latest_ai_phase`）由原先的 `15` 字符调宽至 `25` 字符，彻底解决例如 `bottom turn watch` 等关键研判信息的文本截断问题\\n  - [x] 成功执行静态编译检查并热重启 Flet 主桌面程序，数据链路连接 MT5 状态优良\\n- [x] 运行静态语法编译检查，确保 100% 无语法错误\\n- [x] 重启 Flet 主程序，启动盘面与 AI 状态面板的实盘测试\\n- [x] 校验 M1 周期自动数据放大与绘图裁剪的视觉表现，确保不拥挤且正常研判\\n\"",
+  "StartLine": "1",
+  "TargetContent": "\"# 实时自动更新重构任务列表\\n\\n- [x] 修改 `quant_app/ui/app.py` 中 `draw_kline_img` 的行情刷新与 AI 数据直连链路\\n  - [x] 针对 M1 周期增加 `fetch_count` 自适应放大逻辑\\n  - [x] 将 AI 计算与 UI 状态标记（`latest_dir_score` 等）移至哈希过滤拦截的前方\\n  - [x] 在哈希指纹 `current_state_hash` 中并入 `len(df)` 防止假指纹相同\\n  - [x] 在 `plot_sync` 绘图闭包内通过 `iloc[-count:]` 精细裁剪画图数据\\n- [x] 彻底消除 K 线图右上角状态胶囊的弹跳与抖动\\n  - [x] 给 `self.chart_overlay_badge` 毛玻璃浮标固定宽度 `width=385`，彻底根治外边框的晃动\\n  - [x] 将动作文本格式化从 `Curve {curve_signal.action:<4}` 改为 `Curve {curve_signal.action:<12}`，在 Consolas 等宽字体下将买卖分数物理起始列绝对对齐，消除内容变宽的推搡抖动\\n- [x] 运行静态语法编译检查，确保 100% 无语法错误\\n- [x] 重启 Flet 主程序，启动盘面和 AI 状态面板的实盘测试\\n- [x] 校验 M1 周期自动数据放大与绘图裁剪的视觉表现，确保不拥挤且正常研判\"",
+  "TargetFile": "\"C:\\\\Users\\\\Administrator\\\\.gemini\\\\antigravity\\\\brain\\\\67e1fe5d-c985-4ae7-9537-e11757774f71\\\\task.md\"",
+  "toolAction": "\"Updating task.md with widening details\"",
+  "toolSummary": "\"Update task.md\""
+}

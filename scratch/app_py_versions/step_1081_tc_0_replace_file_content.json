@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"给 chart_overlay_badge 固定宽度并修改对齐，彻底消除左右边缘抖动。\"",
+  "EndLine": "450",
+  "Instruction": "\"给 self.chart_overlay_badge 加上固定的 width=345，并将内容行 alignment 修改为 ft.MainAxisAlignment.START，彻底解决变宽弹跳抖动问题。\"",
+  "ReplacementContent": "\"        self.chart_overlay_badge = ft.Container(\\n            content=ft.Row(\\n                [\\n                    ft.Container(width=6, height=6, border_radius=3, bgcolor=\\\"#89b4fa\\\"),\\n                    self.chart_range_text,\\n                ],\\n                spacing=6,\\n                alignment=ft.MainAxisAlignment.START,\\n            ),\\n            width=345, # 精准固定小胶囊宽度，彻底根治变宽弹跳抖动\\n            padding=ft.padding.symmetric(horizontal=10, vertical=6),\\n            bgcolor=\\\"#cc0c1117\\\", # 深色高透毛玻璃\\n            border_radius=8,\\n            border=ft.border.all(1, \\\"#30363d\\\"),\\n            right=12,\\n            top=12,\\n            shadow=ft.BoxShadow(blur_radius=10, color=\\\"#80000000\\\"),\\n        )\"",
+  "StartLine": "434",
+  "TargetContent": "\"        self.chart_overlay_badge = ft.Container(\\n            content=ft.Row(\\n                [\\n                    ft.Container(width=6, height=6, border_radius=3, bgcolor=\\\"#89b4fa\\\"),\\n                    self.chart_range_text,\\n                ],\\n                spacing=6,\\n                alignment=ft.MainAxisAlignment.CENTER,\\n            ),\\n            padding=ft.padding.symmetric(horizontal=10, vertical=6),\\n            bgcolor=\\\"#cc0c1117\\\", # 深色高透毛玻璃\\n            border_radius=8,\\n            border=ft.border.all(1, \\\"#30363d\\\"),\\n            right=12,\\n            top=12,\\n            shadow=ft.BoxShadow(blur_radius=10, color=\\\"#80000000\\\"),\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app/ui/app.py\"",
+  "toolAction": "\"Adding width to overlay badge container\"",
+  "toolSummary": "\"File edit\""
+}

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Store reference to profit_card container so that its border color can be updated dynamically in update_ui_data.\"",
+  "EndLine": "376",
+  "Instruction": "\"Save the fourth asset card container into `self.profit_card` to allow dynamic updating of its border in `update_ui_data`.\"",
+  "ReplacementContent": "\"        self.profit_card = make_asset_card(ft.Icons.MONETIZATION_ON_ROUNDED, \\\"#10b981\\\", \\\"浮动盈亏 Profit\\\", self.asset_profit, bg_glow=\\\"#10b981\\\")\\n        asset_grid = ft.Container(\\n            content=ft.Row(\\n                [\\n                    make_asset_card(ft.Icons.ACCOUNT_BALANCE_WALLET_ROUNDED, \\\"#89b4fa\\\", \\\"结余 Balance\\\", self.asset_balance),\\n                    make_asset_card(ft.Icons.INSERT_CHART_OUTLINED_ROUNDED, \\\"#3b82f6\\\", \\\"净值 Equity\\\", self.asset_equity),\\n                    make_asset_card(ft.Icons.SHIELD_ROUNDED, \\\"#e0af68\\\", \\\"可用预付款 Free Margin\\\", self.asset_margin),\\n                    self.profit_card,\\n                ],\\n                spacing=14,\\n            ),\\n            padding=ft.padding.only(left=16, right=16, top=14, bottom=6),\\n        )\"",
+  "StartLine": "364",
+  "TargetContent": "\"        asset_grid = ft.Container(\\n            content=ft.Row(\\n                [\\n                    make_asset_card(ft.Icons.ACCOUNT_BALANCE_WALLET_ROUNDED, \\\"#89b4fa\\\", \\\"结余 Balance\\\", self.asset_balance),\\n                    make_asset_card(ft.Icons.INSERT_CHART_OUTLINED_ROUNDED, \\\"#3b82f6\\\", \\\"净值 Equity\\\", self.asset_equity),\\n                    make_asset_card(ft.Icons.SHIELD_ROUNDED, \\\"#e0af68\\\", \\\"可用预付款 Free Margin\\\", self.asset_margin),\\n                    make_asset_card(ft.Icons.MONETIZATION_ON_ROUNDED, \\\"#10b981\\\", \\\"浮动盈亏 Profit\\\", self.asset_profit, bg_glow=\\\"#10b981\\\"),\\n                ],\\n                spacing=14,\\n            ),\\n            padding=ft.padding.only(left=16, right=16, top=14, bottom=6),\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Updating asset_grid to save profit_card reference\"",
+  "toolSummary": "\"Replace asset_grid definition in app.py\""
+}

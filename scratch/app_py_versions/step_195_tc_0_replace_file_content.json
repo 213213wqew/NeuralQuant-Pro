@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复老版本 Flet 不支持 image_src 和 image_fit 参数的问题，重构为支持的 ft.DecorationImage 样式背景。\"",
+  "EndLine": "717",
+  "Instruction": "\"将 Container 的 `image_src` 与 `image_fit` 参数替换为 `image=ft.DecorationImage(src=bg_path, fit=\\\"cover\\\")` 形式，以确保能在旧版 Flet 环境下顺利加载背景图。\"",
+  "ReplacementContent": "\"            padding=40,\\n            image=ft.DecorationImage(\\n                src=bg_path,\\n                fit=\\\"cover\\\",\\n            ),\\n        )\"",
+  "StartLine": "713",
+  "TargetContent": "\"            padding=40,\\n            image_src=bg_path,\\n            image_fit=\\\"cover\\\",\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"修复 Container 背景属性兼容\"",
+  "toolSummary": "\"修复 Container 背景属性兼容\""
+}

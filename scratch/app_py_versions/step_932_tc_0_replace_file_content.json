@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"在 app.py 辅助方法区增加 _make_factor_gauge 原生环形百分比仪表盘图表构建器，支持生成内置文字与 GPU 加速动画的 ProgressRing 模块。\"",
+  "EndLine": "1650",
+  "Instruction": "\"在 _flex_cell 和 _list_card 方法之间插入 _make_factor_gauge 环形仪表盘生成方法\"",
+  "ReplacementContent": "\"            alignment=ft.Alignment(1, 0) if align == ft.TextAlign.RIGHT else ft.Alignment(-1, 0),\\n        )\\n\\n    def _make_factor_gauge(self, title, color, ring_name, pct_name):\\n        ring = ft.ProgressRing(\\n            value=0.5,\\n            stroke_width=4.5,\\n            color=color,\\n            bgcolor=\\\"#141920\\\",\\n            width=42,\\n            height=42,\\n        )\\n        pct_text = ft.Text(\\n            \\\"50%\\\",\\n            size=10,\\n            weight=ft.FontWeight.BOLD,\\n            color=color,\\n        )\\n        setattr(self, ring_name, ring)\\n        setattr(self, pct_name, pct_text)\\n        \\n        return ft.Container(\\n            content=ft.Column(\\n                [\\n                    ft.Stack(\\n                        [\\n                            ring,\\n                            ft.Container(\\n                                content=pct_text,\\n                                alignment=ft.alignment.center,\\n                                width=42,\\n                                height=42,\\n                            )\\n                        ],\\n                        width=42,\\n                        height=42,\\n                    ),\\n                    ft.Text(title, size=10, color=\\\"#8b95a7\\\", weight=ft.FontWeight.W_600),\\n                ],\\n                horizontal_alignment=ft.CrossAxisAlignment.CENTER,\\n                spacing=5,\\n            ),\\n            alignment=ft.alignment.center,\\n            expand=True,\\n        )\\n\\n    def _list_card(self, accent, icon, title, subtitle, right=None, url=None):\"",
+  "StartLine": "1645",
+  "TargetContent": "\"            alignment=ft.Alignment(1, 0) if align == ft.TextAlign.RIGHT else ft.Alignment(-1, 0),\\n        )\\n\\n    def _list_card(self, accent, icon, title, subtitle, right=None, url=None):\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"插入仪表盘构建器方法\"",
+  "toolSummary": "\"插入仪表盘构建器方法\""
+}

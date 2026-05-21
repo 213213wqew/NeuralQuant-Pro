@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"修复 Flet 中 ImageFit 在旧版本下不可用的报错，将其替换为通用字符串形式 \\\"cover\\\"。\"",
+  "EndLine": "717",
+  "Instruction": "\"将 `image_fit=ft.ImageFit.COVER,` 修改为最兼容的字符串表示 `\\\"cover\\\"`，以避免属性不存在报错。\"",
+  "ReplacementContent": "\"            image_fit=\\\"cover\\\",\"",
+  "StartLine": "715",
+  "TargetContent": "\"            image_fit=ft.ImageFit.COVER,\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"修复 ImageFit 兼容属性\"",
+  "toolSummary": "\"修复 ImageFit 兼容属性\""
+}

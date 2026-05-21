@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"完全去除了首页和全局的粒子波浪背景图，将全局容器底色替换为极致简约的高阶深邃暗黑底色（#0b0e14），以消除任何视觉噪音，让用户的核心量化指标与K线图表能以最纯粹、最高对比度的方式清晰展现。\"",
+  "EndLine": "198",
+  "Instruction": "\"Remove the tech_bg.jpg background image loading from the main container and replace it with a clean, professional dark background color (#0b0e14).\"",
+  "ReplacementContent": "\"        self.home_view = self.build_home_view()\\n        self.settings_view = self.build_settings_view()\\n        self.main_content = ft.Container(content=self.home_view, expand=True)\\n\\n        self.page.add(\\n            ft.Container(\\n                content=ft.Column(\\n                    [\\n                        self.build_header(),\\n                        self.main_content,\\n                    ],\\n                    expand=True,\\n                    spacing=0,\\n                ),\\n                expand=True,\\n                bgcolor=\\\"#0b0e14\\\", # 极致简约的高级深邃暗黑底色，消除任何多余背景，聚焦核心交易数据\\n            )\\n        )\"",
+  "StartLine": "175",
+  "TargetContent": "\"        self.home_view = self.build_home_view()\\n        self.settings_view = self.build_settings_view()\\n        self.main_content = ft.Container(content=self.home_view, expand=True)\\n\\n        bg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), \\\"assets\\\", \\\"tech_bg.jpg\\\")\\n        self.page.add(\\n            ft.Container(\\n                content=ft.Column(\\n                    [\\n                        self.build_header(),\\n                        self.main_content,\\n                    ],\\n                    expand=True,\\n                    spacing=0,\\n                ),\\n                expand=True,\\n                image=ft.DecorationImage(\\n                    src=bg_path,\\n                    fit=\\\"cover\\\",\\n                ),\\n                bgcolor=\\\"#ea0b0e14\\\", # 科技感磨砂遮罩，高级又通透\\n            )\\n        )\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Removing background image in app.py\"",
+  "toolSummary": "\"Edit app.py to remove background\""
+}

@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"Updated app background image to point to the newly uploaded tech_bg.jpg.\"",
+  "EndLine": "182",
+  "Instruction": "\"Update the background image file name to tech_bg.jpg.\"",
+  "ReplacementContent": "\"        bg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), \\\"assets\\\", \\\"tech_bg.jpg\\\")\\n        self.page.add(\"",
+  "StartLine": "178",
+  "TargetContent": "\"        bg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), \\\"assets\\\", \\\"tech_bg.png\\\")\\n        self.page.add(\"",
+  "TargetFile": "\"e:\\\\python\\\\lh01\\\\gold-quantification\\\\quant_app\\\\ui\\\\app.py\"",
+  "toolAction": "\"Replacing background image reference\"",
+  "toolSummary": "\"Modify app.py background reference\""
+}

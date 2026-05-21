@@ -1,0 +1,12 @@
+{
+  "AllowMultiple": "false",
+  "Description": "\"更新任务卡，将当前任务状态设为进行中。\"",
+  "EndLine": "8",
+  "Instruction": "\"将前四个任务标记为进行中 [/]，因为我们即将对 `app.py` 进行修改。\"",
+  "ReplacementContent": "\"- [/] 定义虚拟状态类 `StrategySelectorState` 以确保向后兼容性\\n- [/] 编写策略卡片构建渲染函数 `render_strategy_cards` 和选中事件函数 `select_strategy_card`\\n- [/] 重构 `build_settings_view` 视图，移除旧的 Dropdown 并换上全新的方块卡片选择栏 `self.strategy_cards_container`\\n- [/] 将设置页中的全部交互标签、当前预设提示及反馈提示翻译为 100% 纯中文\\n- [ ] 本地启动运行测试并验证功能完整性\"",
+  "StartLine": "3",
+  "TargetContent": "\"- [ ] 定义虚拟状态类 `StrategySelectorState` 以确保向后兼容性\\n- [ ] 编写策略卡片构建渲染函数 `render_strategy_cards` 和选中事件函数 `select_strategy_card`\\n- [ ] 重构 `build_settings_view` 视图，移除旧的 Dropdown 并换上全新的方块卡片选择栏 `self.strategy_cards_container`\\n- [ ] 将设置页中的全部交互标签、当前预设提示及反馈提示翻译为 100% 纯中文\\n- [ ] 本地启动运行测试并验证功能完整性\"",
+  "TargetFile": "\"C:\\\\Users\\\\Administrator\\\\.gemini\\\\antigravity\\\\brain\\\\67e1fe5d-c985-4ae7-9537-e11757774f71\\\\task.md\"",
+  "toolAction": "\"更新任务卡状态\"",
+  "toolSummary": "\"更新任务卡状态\""
+}
